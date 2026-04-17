@@ -1,739 +1,733 @@
 <!DOCTYPE html>
 <html lang="en" data-season="summer">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Relaxed &amp; Livin' presents Logan's Loft | Morillon, French Alps</title>
-  <meta name="description" content="Relaxed & Livin' presents Logan's Loft — a practical alpine stay in the heart of Morillon. Sleeps up to 10, steps from the Morillon gondola, close to Lac Bleu, and built for winter ski trips, summer mountain days, and quieter shoulder seasons." />
-  <meta property="og:title" content="Relaxed &amp; Livin' presents Logan's Loft | Morillon, French Alps" />
-  <meta property="og:description" content="A grounded alpine basecamp in Morillon. Steps from the gondola, family-friendly, and made for real time in the French Alps." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/logans-loft-logo.jpg" />
-  <meta property="og:url" content="https://relaxedandlivin.com/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Relaxed &amp; Livin' presents Logan's Loft | Morillon, French Alps" />
-  <meta name="twitter:description" content="A grounded alpine basecamp in Morillon. Steps from the gondola, family-friendly, and made for real time in the French Alps." />
-  <meta name="twitter:image" content="images/logans-loft-logo.jpg" />
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-  <meta name="theme-color" content="#234738" />
-  <link rel="canonical" href="https://relaxedandlivin.com/" />
-  <link rel="icon" href="images/logans-loft-logo.jpg" type="image/jpeg" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logan's Loft | Morillon, French Alps</title>
+    <meta name="description" content="Stay in the heart of Morillon at Logan's Loft. Sleeps up to 10, steps from the gondola. Built for family ski trips and summer mountain stays in the French Alps.">
+    
+    <meta property="og:title" content="Logan's Loft | Morillon, French Alps">
+    <meta property="og:description" content="Stay in the heart of Morillon. Sleeps up to 10, steps from the gondola, close to Lac Bleu, and made for real family time in the French Alps.">
+    <meta property="og:image" content="images/logans-loft-logo.jpg">
+    
+    <style>
+        :root {
+            --forest: #234738;
+            --teal: #108182;
+            --mustard: #E3A642;
+            --burnt: #BB4410;
+            --cream: #F3E5C9;
+            --white: #FFFFFF;
+            --snow: #F8FBFE;
+            --gray: #F4F4F4;
+            --line: rgba(29, 60, 60, 0.12);
+            --shadow: 0px 10px 30px rgba(21, 60, 60, 0.08);
+            --radius: 18px;
+            --page-max-width: 1200px;
+            --page-bg: var(--white);
+            --page-fore: var(--forest);
+            --text-max-width: 55ch;
+            --accent-radial: gradient(radial-gradient(circle at top right, rgba(243,229,201,0.18), rgba(255,255,255,0.48)));
+        }
 
-  <style>
-    :root {
-      --forest: #234738;
-      --teal: #2E6B6C;
-      --mustard: #E3A642;
-      --burnt: #D2762C;
-      --cream: #F3E5C9;
-      --slate: #1D3C3C;
-      --white: #fffdf8;
-      --line: rgba(29, 60, 60, 0.12);
-      --shadow: 0 10px 30px rgba(29, 60, 60, 0.08);
-      --radius: 18px;
-      --max: 1120px;
-      --page-bg: #fff9ef;
-      --panel-bg: #fffdf8;
-      --text-main: #1d3c3c;
-      --hero-wash: linear-gradient(180deg, rgba(243,229,201,0.56), rgba(255,249,239,0.9));
-      --hero-accent: radial-gradient(circle at top right, rgba(227,166,66,0.18), rgba(46,107,108,0.10) 40%, transparent 60%);
-      --muted-bg: linear-gradient(180deg, rgba(243,229,201,0.78), rgba(255,245,228,0.88));
-      --toggle-bg: rgba(210,118,44,0.12);
-    }
+        [data-season="summer"] {
+            --muted-bg: rgba(243,229,201,0.24);
+            --toggle-bg: rgba(23, 71, 56, 0.08);
+        }
 
-    html[data-season="winter"] {
-      --page-bg: #f7fbfd;
-      --panel-bg: #ffffff;
-      --text-main: #1f3840;
-      --hero-wash: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(247,251,253,0.96));
-      --hero-accent: radial-gradient(circle at top right, rgba(255,255,255,0.95), rgba(186,210,221,0.28) 42%, transparent 60%);
-      --muted-bg: linear-gradient(180deg, rgba(240,247,250,0.88), rgba(247,251,253,0.96));
-      --toggle-bg: rgba(46,107,108,0.08);
-      --line: rgba(44, 83, 103, 0.14);
-    }
+        [data-season="summer"] {
+            --panel-bg: #f8fbf6;
+            --hero-bg: #f3f7f1;
+            --hero-wash: linear-gradient(180deg, rgba(243,247,241,0.72), rgba(255,255,255,0.92));
+            --card-wash: linear-gradient(135deg, rgba(227,166,66,0.28), rgba(187,68,16,0.08), rgba(46,107,108,0.14));
+        }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+        [data-season="summer"] .hero-image { --season-hero-image: url('images/summer-hero.jpg'); }
+        [data-season="winter"] .hero-image { --season-hero-image: url('images/winter-hero.jpg'); }
 
-    body {
-      margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      background: var(--page-bg);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Inter, Arial, Helvetica, sans-serif;
+            color: var(--page-fore);
+            background: var(--page-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.28s ease, color 0.28s ease;
+        }
 
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        .container {
+            width: clamp(2rem, 100% - 2rem, var(--page-max-width));
+            margin: 0 auto;
+        }
 
-    .container {
-      width: min(calc(100% - 2rem), var(--max));
-      margin: 0 auto;
-    }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: color-mix(in srgb, var(--page-bg) 92%, white 8%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+        }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: color-mix(in srgb, var(--page-bg) 92%, white 8%);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
+        .header-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+        }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.9rem 0;
-      gap: 1rem;
-    }
+        .brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 0.8rem;
+            min-width: 0;
+        }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      min-width: 0;
-    }
+        .brand img {
+            width: 52px;
+            height: 52px;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            padding: 0.25rem;
+        }
 
-    .brand img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      border-radius: 14px;
-      background: white;
-      border: 1px solid var(--line);
-      padding: 0.15rem;
-    }
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
+        .brand strong {
+            font-size: 1.1rem;
+            letter-spacing: 0.02rem;
+            color: var(--forest);
+        }
 
-    .brand strong {
-      font-size: 1rem;
-      letter-spacing: 0.02em;
-    }
+        .brand span {
+            font-size: 0.78rem;
+            color: color-mix(in srgb, var(--forest) 70%, transparent 24%);
+        }
 
-    .brand span {
-      font-size: 0.78rem;
-      color: color-mix(in srgb, var(--text-main) 76%, transparent 24%);
-    }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
+        .nav-links {
+            display: flex;
+            gap: 1.4rem;
+        }
 
-    .nav-links {
-      display: none;
-      gap: 1rem;
-      font-size: 0.92rem;
-      color: color-mix(in srgb, var(--text-main) 78%, transparent 22%);
-    }
+        .nav-links a {
+            color: color-mix(in srgb, var(--forest) 78%, transparent 22%);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
 
-    .season-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.3rem;
-      background: var(--toggle-bg);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-    }
+        .season-toggle {
+            display: inline-flex;
+            padding: 0.25rem;
+            gap: 0.1rem;
+            border-radius: 999px;
+            background: var(--toggle-bg);
+            border: 1px solid var(--line);
+        }
 
-    .season-toggle button {
-      border: 0;
-      background: transparent;
-      color: var(--text-main);
-      font: inherit;
-      font-weight: 700;
-      padding: 0.5rem 0.8rem;
-      border-radius: 999px;
-      cursor: pointer;
-    }
+        .season-toggle button {
+            border: 0;
+            padding: 0.4rem 1rem;
+            background: transparent;
+            color: var(--text-main);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
 
-    .season-toggle button.active {
-      background: var(--panel-bg);
-      box-shadow: var(--shadow);
-    }
+        .season-toggle button.active {
+            background: var(--panel-bg);
+            box-shadow: var(--shadow);
+        }
 
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0.85rem 1.15rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0.5rem 1.35rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
 
-    .button.primary {
-      background: var(--forest);
-      color: white;
-    }
+        .button.primary {
+            background: var(--forest);
+            color: white;
+        }
 
-    .button.secondary {
-      background: transparent;
-      border-color: color-mix(in srgb, var(--forest) 22%, transparent 78%);
-      color: var(--forest);
-    }
+        .button.primary:hover { background: #1b392d; }
 
-    .hero {
-      padding: 4rem 0 2.5rem;
-      background: var(--hero-wash), var(--hero-accent);
-    }
+        .button.secondary {
+            background: white;
+            border: 1px solid var(--line);
+            color: color-mix(in srgb, var(--forest) 22%, transparent 78%);
+        }
 
-    .hero-grid {
-      display: grid;
-      gap: 1.5rem;
-      align-items: center;
-    }
+        .hero {
+            padding: 3.25rem 0 2rem;
+            background: var(--hero-wash), var(--hero-accent);
+            transition: background 0.28s ease;
+        }
 
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 0.9rem;
-      padding: 0.35rem 0.65rem;
-      border-radius: 999px;
-      background: color-mix(in srgb, var(--teal) 12%, transparent 88%);
-      color: var(--teal);
-      font-size: 0.84rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
+        .hero-grid {
+            display: grid;
+            gap: 1.5rem;
+            align-items: center;
+        }
 
-    h1, h2, h3, h4 {
-      margin: 0 0 0.75rem;
-      line-height: 1.08;
-      color: var(--forest);
-    }
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            background: color-mix(in srgb, var(--teal) 12%, transparent 88%);
+            color: var(--teal);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
 
-    h1 {
-      font-size: clamp(1.4rem, 3vw, 1.9rem);
-      font-weight: 600;
-      color: var(--teal);
-    }
+        h1, h2, h3 {
+            margin: 0 0 0.75rem;
+            line-height: 1.1;
+        }
 
-    h2 {
-      font-size: clamp(2.5rem, 7vw, 5.1rem);
-      max-width: 10ch;
-    }
+        h1 {
+            font-size: clamp(2.3rem, 6vw, 4.8rem);
+            max-width: 10ch;
+        }
 
-    h3 {
-      font-size: clamp(1.6rem, 4vw, 2.3rem);
-    }
+        h2 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+        }
 
-    h4 {
-      font-size: 1.08rem;
-    }
+        h3 {
+            font-size: 1.15rem;
+        }
 
-    .lead {
-      font-size: 1.07rem;
-      max-width: 60ch;
-      color: color-mix(in srgb, var(--text-main) 84%, transparent 16%);
-      margin-bottom: 1.35rem;
-    }
+        .lead {
+            font-size: 1.15rem;
+            max-width: 58ch;
+            color: color-mix(in srgb, var(--text-main) 84%, transparent 16%);
+            margin-bottom: 1.35rem;
+        }
 
-    .hero-card,
-    .card,
-    .platform-link,
-    .gallery figure {
-      background: var(--panel-bg);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
+        .hero-card {
+            position: relative;
+            background: var(--panel-bg);
+            border: 1px solid var(--line);
+            border-radius: calc(var(--radius) + 4px);
+            padding: 0.5rem;
+            transition: background 0.28s ease, border-color 0.28s ease;
+        }
 
-    .hero-card {
-      border-radius: calc(var(--radius) + 4px);
-      overflow: hidden;
-    }
+        .hero-card figure {
+            margin: 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
 
-    .hero-image {
-      aspect-ratio: 4 / 3;
-      min-height: 320px;
-      position: relative;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-    }
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background-size: cover;
+            background-position: center;
+            min-height: 320px;
+            position: relative;
+            background-image: var(--season-hero-image);
+        }
 
-    html[data-season="summer"] .hero-image {
-      background-image: linear-gradient(180deg, rgba(29,60,60,0.10), rgba(29,60,60,0.24)), url("images/summer-hero.jpg");
-    }
+        .hero-note {
+            position: absolute;
+            left: 1rem;
+            bottom: 1rem;
+            padding: 0.6rem 1rem;
+            background: rgba(255,255,255,0.9);
+            color: var(--forest);
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            max-width: 18rem;
+            border: 1px solid rgba(35,71,56,0.1);
+        }
 
-    html[data-season="winter"] .hero-image {
-      background-image: linear-gradient(180deg, rgba(29,60,60,0.08), rgba(29,60,60,0.20)), url("images/winter-hero.jpg");
-    }
+        .section {
+            padding: 4rem 0;
+        }
 
-    .hero-note {
-      position: absolute;
-      left: 1rem;
-      bottom: 1rem;
-      z-index: 2;
-      background: rgba(255,253,248,0.92);
-      color: var(--forest);
-      padding: 0.75rem 0.9rem;
-      border-radius: 14px;
-      font-size: 0.92rem;
-      max-width: 18rem;
-      border: 1px solid rgba(35,71,56,0.1);
-    }
+        .section-muted {
+            background: var(--muted-bg);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            transition: background 0.28s ease;
+        }
 
-    .section {
-      padding: 4rem 0;
-    }
+        .section-head {
+            max-width: 44rem;
+            margin-bottom: 1.75rem;
+        }
 
-    .section-muted {
-      background: var(--muted-bg);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
+        .grid-3 {
+            display: grid;
+            gap: 1rem;
+        }
 
-    .section-head {
-      max-width: 46rem;
-      margin-bottom: 1.75rem;
-    }
+        .card {
+            border-radius: var(--radius);
+            padding: 1.25rem;
+        }
 
-    .grid-2,
-    .grid-3,
-    .gallery,
-    .platforms {
-      display: grid;
-      gap: 1rem;
-    }
+        .feature-list {
+            margin: 1.5rem 0;
+            padding: 0;
+            list-style: none;
+        }
 
-    .card {
-      border-radius: var(--radius);
-      padding: 1.25rem;
-    }
+        .feature-list li {
+            padding-left: 1rem;
+            position: relative;
+        }
 
-    .feature-list {
-      display: grid;
-      gap: 0.75rem;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
+        .feature-list li::before {
+            content: "";
+            position: absolute;
+            width: 0.45rem;
+            height: 0.45rem;
+            left: 0;
+            border-radius: 50%;
+            background: var(--teal);
+            top: 0.55rem;
+        }
 
-    .feature-list li {
-      padding-left: 1rem;
-      position: relative;
-    }
+        .season-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
 
-    .feature-list li::before {
-      content: "";
-      width: 0.45rem;
-      height: 0.45rem;
-      border-radius: 50%;
-      background: var(--mustard);
-      position: absolute;
-      left: 0;
-      top: 0.55rem;
-    }
+        .season-tag {
+            align-self: flex-start;
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04rem;
+            font-size: 0.65rem;
+            border-radius: 999px;
+        }
 
-    .season-card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
+        .winter { background: rgba(46,107,108,0.12); color: var(--teal); }
+        .summer { background: rgba(210,118,44,0.12); color: var(--burnt); }
 
-    .season-tag {
-      align-self: flex-start;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      padding: 0.35rem 0.6rem;
-      border-radius: 999px;
-    }
+        .location-box {
+            display: grid;
+            gap: 1rem;
+        }
 
-    .winter { background: rgba(46,107,108,0.12); color: var(--teal); }
-    .summer { background: rgba(210,118,44,0.12); color: var(--burnt); }
+        .map-placeholder {
+            min-height: 280px;
+            border-radius: var(--radius);
+            border: 1px dashed color-mix(in srgb, var(--forest) 28%, transparent 72%);
+            background: color-mix(in srgb, var(--teal) 8%, transparent 92%), color-mix(in srgb, var(--white) 90%, transparent 10%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            color: color-mix(in srgb, var(--text-main) 75%, transparent 25%);
+        }
 
-    .mood-grid img,
-    .gallery .photo-img,
-    .life-grid img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--line);
-    }
+        .gallery-figure {
+            margin: 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
 
-    .map-card img {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--line);
-    }
+        .gallery-photo {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background-size: cover;
+            background-position: center;
+        }
 
-    .platform-link {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.1rem;
-      border-radius: 16px;
-      font-weight: 600;
-    }
+        .gallery-figcaption {
+            padding: 0.85rem 0.95rem 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: color-mix(in srgb, var(--text-main) 78%, transparent 22%);
+        }
 
-    .platform-link span:last-child {
-      color: color-mix(in srgb, var(--text-main) 52%, transparent 48%);
-      font-weight: 500;
-    }
+        .platform-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            background: var(--white);
+            padding: 1rem 1.1rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
 
-    .cta-panel {
-      background: var(--forest);
-      color: white;
-      border-radius: 26px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-    }
+        .platform-link span:last-child {
+            color: color-mix(in srgb, var(--text-main) 52%, transparent 48%);
+            font-weight: 500;
+        }
 
-    .cta-panel h3,
-    .cta-panel p,
-    .cta-panel small { color: white; }
+        .cta-panel {
+            background: var(--forest);
+            color: white;
+            padding: 2.25rem 2rem;
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow);
+        }
 
-    .cta-panel .button.primary {
-      background: white;
-      color: var(--forest);
-    }
+        .cta-panel h2, .cta-panel p {
+            color: white;
+        }
 
-    .cta-panel .button.secondary {
-      color: white;
-      border-color: rgba(255,255,255,0.3);
-    }
+        .footer {
+            padding: 2rem 0 3rem;
+            border-top: 1px solid var(--line);
+            color: color-mix(in srgb, var(--text-main) 74%, transparent 26%);
+        }
 
-    .footer {
-      padding: 2rem 0 3rem;
-      border-top: 1px solid var(--line);
-      color: color-mix(in srgb, var(--text-main) 74%, transparent 26%);
-    }
+        .footer-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
 
-    .footer-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
+        .micro {
+            font-size: 0.9rem;
+            color: color-mix(in srgb, var(--text-main) 72%, transparent 28%);
+        }
 
-    .micro {
-      font-size: 0.92rem;
-      color: color-mix(in srgb, var(--text-main) 72%, transparent 28%);
-    }
+        @media (min-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr 1fr; }
+            .hero { padding: 4.5rem 0 3rem; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+            .location-box { grid-template-columns: 2fr 3fr; }
+            .platforms { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            
+            .header-wrap {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 2rem;
+            }
 
-    .subscribe-note {
-      margin-top: 0.85rem;
-      font-size: 0.92rem;
-      color: color-mix(in srgb, var(--text-main) 72%, transparent 28%);
-    }
-
-    .reg-line {
-      font-weight: 700;
-      color: var(--forest);
-    }
-
-    @media (min-width: 760px) {
-      .nav-links { display: flex; }
-      .hero-grid,
-      .grid-2,
-      .platforms { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .grid-3,
-      .gallery,
-      .life-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .footer-wrap {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-    }
-  </style>
+            .footer-wrap {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#top" class="brand" aria-label="Logan's Loft home">
-        <img src="images/logans-loft-logo.jpg" alt="Logan's Loft logo" />
-        <div class="brand-text">
-          <strong>Relaxed &amp; Livin'</strong>
-          <span>presents Logan's Loft</span>
-        </div>
-      </a>
-      <div class="nav-right">
-        <nav class="nav-links" aria-label="Primary navigation">
-          <a href="#why">Why it works</a>
-          <a href="#seasons">Winter &amp; Summer</a>
-          <a href="#location">Location</a>
-          <a href="#gallery">Photos</a>
-          <a href="#book">Book</a>
-        </nav>
-        <div class="season-toggle" aria-label="Season view toggle">
-          <button type="button" data-season-button="winter">Winter</button>
-          <button type="button" class="active" data-season-button="summer">Summer</button>
-        </div>
-      </div>
-    </div>
-  </header>
+<body data-season="summer">
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Relaxed &amp; Livin' presents</span>
-          <h1>A grounded escape in the French Alps</h1>
-          <h2>Logan's Loft</h2>
-          <p class="lead" id="hero-copy">A practical alpine stay in Morillon. Close to the village, the trails, and the rhythm of a real mountain town. Built for summer days that start slow and end when they feel like it.</p>
-          <div class="cta-row">
-            <a class="button primary" href="https://www.vrbo.com/4555980?dateless=true" target="_blank" rel="noopener noreferrer">Book on VRBO</a>
-            <a class="button secondary" href="https://www.airbnb.com/" target="_blank" rel="noopener noreferrer">View on Airbnb</a>
-          </div>
-          <p class="micro" id="hero-meta">Stay in the heart of Morillon · Sleeps up to 10 · Family-friendly · About 1 hour from Geneva</p>
+    <header>
+        <div class="container header-wrap">
+            <a href="#" class="brand">
+                <img src="images/logans-loft-logo.jpg" alt="Logan's Loft logo">
+                <div class="brand-text">
+                    <strong>Logan's Loft</strong>
+                    <span>Morillon, French Alps</span>
+                </div>
+            </a>
+            
+            <div class="nav-right">
+                <nav class="nav-links">
+                    <a href="#features">Winter & Summer</a>
+                    <a href="#experience">The Area</a>
+                    <a href="#location">Location</a>
+                    <a href="#platforms">Book</a>
+                </nav>
+                <div class="season-toggle">
+                    <button type="button" class="season-button" data-season="winter">Winter</button>
+                    <button type="button" class="season-button active" data-season="summer">Summer</button>
+                </div>
+            </div>
         </div>
-        <div class="hero-card">
-          <div class="hero-image">
-            <div class="hero-note" id="hero-note">Summer by default. Winter is one click away.</div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <section id="why" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h3>Why this exists</h3>
-          <p class="lead">Relaxed &amp; Livin' is the broader idea. Logan's Loft is the actual place. Not a resort set. Not an overbuilt rental pitch. Just a real alpine base for skiing, hiking, cooking, and spending a little less time staring at a schedule.</p>
-        </div>
-        <div class="grid-3">
-          <div class="card">
-            <h4>Right where you need it</h4>
-            <ul class="feature-list">
-              <li>Morillon village location</li>
-              <li>Walkable setup for daily life</li>
-              <li>Good base for lake, trails, and lift access</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>Built for staying, not just sleeping</h4>
-            <ul class="feature-list">
-              <li>Sleeps up to 10</li>
-              <li>Kitchen and dining table for actual meals</li>
-              <li>Family-friendly layout</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>Useful details still matter</h4>
-            <ul class="feature-list">
-              <li>Mountain-town pace</li>
-              <li>Good in winter, good in summer</li>
-              <li>Less logistics, more time outside</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+    <main id="top">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="eyebrow" id="hero-eyebrow">Peak Alpine Basecamp</span>
+                    <h1 id="hero-title">Stay in the heart of Morillon.</h1>
+                    <p class="lead" id="hero-lead">Swap in your best winter photo here. The toggle will switch this area between snow season and summer season.</p>
+                    <div class="cta-row">
+                        <a href="https://www.vrbo.com/en-gb/holiday-rental/p4555980?dateless=true" target="_blank" rel="noopener noreferrer" class="button primary">Book on VRBO</a>
+                        <a href="https://www.airbnb.com/hosting/listings/editor/1472079287597151848" target="_blank" rel="noopener noreferrer" class="button secondary">See on Airbnb</a>
+                    </div>
+                    <p class="micro" id="hero-note-text">Step to the lift in Morillon - Sleeps up to 10 - Family-friendly - About 1 hour from Geneva.</p>
+                </div>
+                <div class="hero-card">
+                    <figure class="hero-image"></figure>
+                    <div class="hero-note" id="hero-note">Swap in your best winter photo here. The toggle will switch this area between snow season and summer season.</div>
+                </div>
+            </div>
+        </section>
 
-    <section class="section section-muted">
-      <div class="container">
-        <div class="section-head">
-          <h3 id="experience-title">The summer rhythm</h3>
-          <p class="lead" id="experience-copy">Open windows. Long light. Trails, village walks, and a slower day. Summer here feels less scheduled. Hard to complain.</p>
-        </div>
-      </div>
-    </section>
+        <section id="features" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Why it works</span>
+                    <h2>Grounded, simple, and useful.</h2>
+                </div>
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>Ski in, Ski outish</h3>
+                        <ul class="feature-list">
+                            <li>200m flat walk to the Morillon gondola</li>
+                            <li>Walkable to the village center</li>
+                            <li>Close to Lac Bleu and the Giffre River</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Spaced Out</h3>
+                        <ul class="feature-list">
+                            <li>Built for staying, not just sleeping</li>
+                            <li>Sleeps up to 10</li>
+                            <li>Full kitchen, dishwasher, washer/dryer</li>
+                            <li>Family-friendly layout</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Useful details still matter</h3>
+                        <ul class="feature-list">
+                            <li>Private parking</li>
+                            <li>Separate ski and summer storage</li>
+                            <li>Smart TV and PlayStation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="grid-2 mood-grid">
-          <img src="images/hero-morillon-sign-from-mountian-top.jpg" alt="Morillon sign overlooking the valley" />
-          <img src="images/hero-mountian-scene.jpg" alt="Mountain view with flowers in Morillon" />
-        </div>
-      </div>
-    </section>
+        <section id="experience" class="section-muted section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">The winter rhythm</span>
+                    <h2>Experience Logan's Loft.</h2>
+                    <p id="experience-text">A practical alpine basecamp in Morillon. Steps from the gondola. Built for family ski trips, big breakfasts, and long mornings where the mountain is already outside your window.</p>
+                </div>
+                <div class="grid-3">
+                    <article class="season-card card">
+                        <span class="season-tag winter">Winter</span>
+                        <h3>Skiing and snow sports</h3>
+                        <p>Stay near the Morillon gondola and head straight into the Grand Massif. Less dragging gear around. More time on the slopes.</p>
+                        <ul class="feature-list">
+                            <li>Ski-in/Ski-out accessibility</li>
+                            <li>Family-friendly trails</li>
+                            <li>Grand Massif base location</li>
+                        </ul>
+                    </article>
+                    <article class="season-card card">
+                        <span class="season-tag summer">Summer</span>
+                        <h3>Hiking and Biking</h3>
+                        <p>The Giffre valley is your playground in summer. Lac Bleu for swimming, lakeside paths, and long alpine days.</p>
+                        <ul class="feature-list">
+                            <li>Walkable summer sports center</li>
+                            <li>Lake, trails, and bike village</li>
+                            <li>Easy balance of activity and downtime</li>
+                        </ul>
+                    </article>
+                    <article class="season-card card">
+                        <span class="season-tag">Events</span>
+                        <h3>Dates & Events</h3>
+                        <p>Morillon and the Grand Massif events are built around skiing. Some long summer days. The shoulder seasons have their own use, especially if you care more about hiking than crowds.</p>
+                        <ul class="feature-list">
+                            <li>Christmas Market & Festivities</li>
+                            <li>Summer Concerts by the Lake</li>
+                            <li>Village festivals and markets</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    <section id="seasons" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h3>Works in both seasons</h3>
-          <p class="lead">Winter and summer both work here. One has snow and lift access. The other has lake days, hiking, bikes, and long evenings that do not seem in much of a hurry.</p>
-        </div>
-        <div class="grid-2">
-          <article class="card season-card">
-            <span class="season-tag winter">Winter</span>
-            <h4>Ski days without the usual nonsense</h4>
-            <p>Snow outside, mountains in front of you, and a cleaner kind of day. Less hauling. Less fuss. Better arrangement.</p>
-            <ul class="feature-list">
-              <li>Grand Massif access nearby</li>
-              <li>Good winter base for families</li>
-              <li>Snow-town mornings and easy resets</li>
-            </ul>
-          </article>
-          <article class="card season-card">
-            <span class="season-tag summer">Summer</span>
-            <h4>Lake, trails, bikes, and village days</h4>
-            <p>Green hills, clear mornings, flowers in the valley, and a little more room in the day. Summer is not exactly struggling.</p>
-            <ul class="feature-list">
-              <li>Walkable summer spots nearby</li>
-              <li>Good base for exploring Haute-Savoie</li>
-              <li>Easy balance of activity and downtime</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
+        <section id="location" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Location</span>
+                    <h2>Stay in the heart of Morillon.</h2>
+                    <p>Park once and walk. You're in the French Alps, about an hour from Geneva Airport, in the Grand Massif region. Walk to the village, Lac Bleu, and the gondola right out front. Simple setup. Better location.</p>
+                </div>
+                <div class="location-box">
+                    <div class="card">
+                        <h3>On the map</h3>
+                        <ul class="feature-list">
+                            <li>Morillon, French Alps</li>
+                            <li>About 1 hour from Geneva</li>
+                            <li>Lift set to the Morillon gondola right out front</li>
+                            <li>Close to Samoens and valley villages</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.google.com/maps?q=46.0816,6.6807" target="_blank" rel="noopener noreferrer" class="map-placeholder">
+                        46.0816° N, 6.6807° E<br>View on Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <section id="location" class="section section-muted">
-      <div class="container">
-        <div class="section-head">
-          <h3>Where it is</h3>
-          <p class="lead">Morillon in the French Alps. About an hour from Geneva. Easy to reach. Hard to rush once you get there.</p>
+        <section id="gallery" class="section-muted section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>A few photos.</h2>
+                    <p>Just enough to show the place honestly.</p>
+                </div>
+                <div class="grid-3 gallery">
+                    <figure class="gallery-figure">
+                        <div class="gallery-photo" style="background-image: url('images/hero-mountian-scene.jpg');"></div>
+                        <figcaption class="gallery-figcaption">Balcony or mountain-view shot</figcaption>
+                    </figure>
+                    <figure class="gallery-figure">
+                        <div class="gallery-photo" style="background-image: url('images/whole-living-room.jpg');"></div>
+                        <figcaption class="gallery-figcaption">Main living area</figcaption>
+                    </figure>
+                    <figure class="gallery-figure">
+                        <div class="gallery-photo" style="background-image: url('images/kitchen.jpg');"></div>
+                        <figcaption class="gallery-figcaption">Kitchen, dining table, or soak tub</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="book" class="section">
+            <div class="container cta-panel">
+                <h2>Stay connected.</h2>
+                <p>Use whichever platform you prefer. Most bookings will likely be VRBO or Airbnb. This site just points you in the right direction.</p>
+                <div class="cta-row">
+                    <a href="https://www.vrbo.com/en-gb/holiday-rental/p4555980?dateless=true" target="_blank" rel="noopener noreferrer" class="button primary">VRBO</a>
+                    <a href="https://www.airbnb.com/hosting/listings/editor/1472079287597151848" target="_blank" rel="noopener noreferrer" class="button secondary">Airbnb</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container platforms">
+                <a href="https://www.youtube.com/@RelaxedandLavin" target="_blank" rel="noopener noreferrer" class="platform-link">
+                    <span>YouTube</span>
+                </a>
+                <a href="https://www.instagram.com/relaxedandlavin/" target="_blank" rel="noopener noreferrer" class="platform-link">
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61581857844124" target="_blank" rel="noopener noreferrer" class="platform-link">
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.tiktok.com/@relaxedandlavin" target="_blank" rel="noopener noreferrer" class="platform-link">
+                    <span>TikTok</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section container">
+            <div class="grid-3">
+                <div class="card">
+                    <h3>The story</h3>
+                    <p>Owning a holiday home in France was not exactly the obvious route, but hiking, fresh air, and the kind of quiet you do not get in a city, you will probably get the point after a day or two.</p>
+                </div>
+                <div class="card">
+                    <h3>Guest support</h3>
+                    <p>For anything that pops up during your stay, a local reservation property manager is the first stop.</p>
+                </div>
+                <div class="card">
+                    <h3>Emergencies</h3>
+                    <ul class="feature-list">
+                        <li>33 7 60 42 05 74 (Emergency)</li>
+                        <li>After-hours calls should be for emergencies only</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-wrap">
+            <strong>Logan's Loft</strong>
+            <span class="micro">Where mountain meets adventure—your ideal French Alps getaway.</span>
         </div>
-        <div class="map-card">
-          <img src="images/map-pindrop.jpg" alt="Map showing Morillon near Geneva, Annecy, and Chamonix" />
-        </div>
-      </div>
-    </section>
+    </footer>
 
-    <section id="gallery" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h3>The space</h3>
-          <p class="lead">Simple, warm, and useful. Nothing overdone. Enough room to cook, sleep, reset, and head back out again.</p>
-        </div>
-        <div class="gallery">
-          <img class="photo-img" src="images/kitchen.jpg" alt="Kitchen and dining table" />
-          <img class="photo-img" src="images/whole-living-room.jpg" alt="Whole living room" />
-          <img class="photo-img" src="images/bedroom-master.jpg" alt="Master bedroom" />
-          <img class="photo-img" src="images/bedroom-bunkbeds.jpg" alt="Bedroom with bunk beds" />
-          <img class="photo-img" src="images/bedroom-tripple.jpg" alt="Bedroom with three beds" />
-          <img class="photo-img" src="images/master-bath.jpg" alt="Master bath" />
-        </div>
-      </div>
-    </section>
+    <script>
+        function runStates() {
+            const doc = document.documentElement;
+            const consts = {
+                heroEyebrow: document.getElementById('hero-eyebrow'),
+                heroTitle: document.getElementById('hero-title'),
+                heroLead: document.getElementById('hero-lead'),
+                heroNote: document.getElementById('hero-note'),
+                expText: document.getElementById('experience-text')
+            };
 
-    <section class="section section-muted">
-      <div class="container">
-        <div class="section-head">
-          <h3>Life around it</h3>
-          <p class="lead">This part matters too. The valley, the food, the odd animal staring at you like you’re the one out of place.</p>
-        </div>
-        <div class="life-grid grid-3">
-          <img src="images/cow.jpg" alt="Cow in alpine field" />
-          <img src="images/food-1.jpg" alt="Colorful salad dish" />
-          <img src="images/food-2.jpg" alt="Another local food dish" />
-        </div>
-      </div>
-    </section>
+            const content = {
+                winter: {
+                    eyebrow: "Peak Alpine Basecamp",
+                    title: "A practical alpine basecamp in Morillon.",
+                    lead: "Steps from the gondola. Built for family ski trips, big breakfasts, and long mornings where the mountain is already outside your window.",
+                    note: "Swap in your best winter photo here. The toggle will switch this area between snow season and summer season.",
+                    experience: "Stay near the Morillon gondola. Less dragging gear around. More time on the slopes."
+                },
+                summer: {
+                    eyebrow: "The Summer Rhythm",
+                    title: "Hiking, Biking, and Lac Bleu.",
+                    lead: "Experience Morillon in the summer. Lac Bleu, the Giffre valley, and the trails are right outside your door.",
+                    note: "Summer in Morillon: Steps to Lac Bleu, walkable trails, and alpine afternoons.",
+                    experience: "Morillon is just as alive in the summer. Lakes, trails, and village life."
+                }
+            };
 
-    <section id="book" class="section">
-      <div class="container">
-        <div class="cta-panel">
-          <div>
-            <h3>Book now</h3>
-            <p>Use whichever booking platform you prefer. This site just keeps things clear and pointed in the right direction.</p>
-            <small>One click out. No extra steps.</small>
-          </div>
-          <div class="cta-row">
-            <a class="button primary" href="https://www.vrbo.com/4555980?dateless=true" target="_blank" rel="noopener noreferrer">VRBO</a>
-            <a class="button secondary" href="https://www.airbnb.com/" target="_blank" rel="noopener noreferrer">Airbnb</a>
-          </div>
-        </div>
-      </div>
-    </section>
+            function setSeason(season) {
+                doc.setAttribute('data-season', season);
+                document.querySelectorAll('.season-button').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.season === season);
+                });
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h3>Stay connected</h3>
-          <p class="lead">Relaxed &amp; Livin' is the broader lifestyle brand. Hands-on living. Fatherhood. DIY and building. Gardening, food, outdoor life, and competence without making a speech about it.</p>
-          <p class="subscribe-note">The place is Logan's Loft. The broader lens is Relaxed &amp; Livin'.</p>
-        </div>
-        <div class="platforms">
-          <a class="platform-link" href="https://www.youtube.com/@RelaxedandLivin" target="_blank" rel="noopener noreferrer">
-            <span>YouTube</span>
-            <span>Relaxed &amp; Livin'</span>
-          </a>
-          <a class="platform-link" href="https://www.instagram.com/relaxedandlivin/" target="_blank" rel="noopener noreferrer">
-            <span>Instagram</span>
-            <span>@relaxedandlivin</span>
-          </a>
-          <a class="platform-link" href="https://www.facebook.com/profile.php?id=61581815784424" target="_blank" rel="noopener noreferrer">
-            <span>Facebook</span>
-            <span>Relaxed &amp; Livin'</span>
-          </a>
-          <a class="platform-link" href="https://www.tiktok.com/@relaxedandlivin" target="_blank" rel="noopener noreferrer">
-            <span>TikTok</span>
-            <span>@relaxedandlivin</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+                consts.heroEyebrow.textContent = content[season].eyebrow;
+                consts.heroTitle.textContent = content[season].title;
+                consts.heroLead.textContent = content[season].lead;
+                consts.heroNote.textContent = content[season].note;
+                consts.expText.textContent = content[season].experience;
+            }
 
-  <footer class="footer">
-    <div class="container footer-wrap">
-      <div>
-        <strong>Relaxed &amp; Livin' presents Logan's Loft</strong><br />
-        <span class="micro">Morillon, France · Grand Massif</span><br />
-        <span class="micro reg-line">French Registration: 7419000097735</span>
-      </div>
-      <div class="micro">A real place. Not much performance required.</div>
-    </div>
-  </footer>
+            document.querySelectorAll('.season-button').forEach(button => {
+                button.addEventListener('click', () => setSeason(button.dataset.season));
+            });
 
-  <script>
-    const root = document.documentElement;
-    const buttons = document.querySelectorAll("[data-season-button]");
-    const heroCopy = document.getElementById("hero-copy");
-    const heroMeta = document.getElementById("hero-meta");
-    const heroNote = document.getElementById("hero-note");
-    const experienceTitle = document.getElementById("experience-title");
-    const experienceCopy = document.getElementById("experience-copy");
+            // Init
+            setSeason('summer');
+        }
 
-    const content = {
-      summer: {
-        heroCopy: "A practical alpine stay in Morillon. Close to the village, the trails, and the rhythm of a real mountain town. Built for summer days that start slow and end when they feel like it.",
-        heroMeta: "Stay in the heart of Morillon · Sleeps up to 10 · Family-friendly · About 1 hour from Geneva",
-        heroNote: "Summer by default. Winter is one click away.",
-        experienceTitle: "The summer rhythm",
-        experienceCopy: "Open windows. Long light. Trails, village walks, and a slower day. Summer here feels less scheduled. Hard to complain."
-      },
-      winter: {
-        heroCopy: "A practical alpine stay in Morillon. Snow outside, mountains in front of you, and the kind of winter base that makes the day easier before it even starts.",
-        heroMeta: "Stay in the heart of Morillon · Sleeps up to 10 · Family-friendly · Grand Massif nearby",
-        heroNote: "Winter light, snow outside, and less nonsense getting started.",
-        experienceTitle: "The winter rhythm",
-        experienceCopy: "Coffee. Layers. Snow outside. A cleaner kind of day. Winter here has a good way of arranging things."
-      }
-    };
-
-    function setSeason(season) {
-      root.setAttribute("data-season", season);
-      buttons.forEach((button) => {
-        button.classList.toggle("active", button.dataset.seasonButton === season);
-      });
-      heroCopy.textContent = content[season].heroCopy;
-      heroMeta.textContent = content[season].heroMeta;
-      heroNote.textContent = content[season].heroNote;
-      experienceTitle.textContent = content[season].experienceTitle;
-      experienceCopy.textContent = content[season].experienceCopy;
-    }
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => setSeason(button.dataset.seasonButton));
-    });
-
-    setSeason("summer");
-  </script>
+        runStates();
+    </script>
 </body>
 </html>
