@@ -25,8 +25,6 @@
     * { box-sizing: border-box; }
     body { margin: 0; font-family: Arial, sans-serif; background: var(--page-bg); color: var(--text-main); line-height: 1.6; transition: background 0.5s ease; }
     
-    /* Header & Nav */
-    .site-header { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--page-bg) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
     .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 20px; max-width: var(--max); margin: 0 auto; }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; font-weight: bold; }
     .brand img { width: 40px; height: 40px; border-radius: 8px; }
@@ -35,61 +33,42 @@
     .season-toggle button { border: 0; background: transparent; padding: 6px 14px; border-radius: 999px; cursor: pointer; font-weight: bold; color: var(--text-main); font-size: 0.8rem; }
     .season-toggle button.active { background: var(--panel-bg); box-shadow: var(--shadow); }
 
-    /* Hero */
     .hero { 
-      height: 85vh; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      text-align: center; 
-      color: white;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      transition: background-image 0.5s ease-in-out;
+      height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+      background-size: cover; background-position: center; position: relative; transition: background-image 0.5s ease-in-out;
     }
     .hero::before { content: ""; position: absolute; inset: 0; background: var(--hero-wash); }
     .hero-content { position: relative; z-index: 1; padding: 20px; }
-    .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; letter-spacing: -1px; }
-    .hero p { font-size: 1.2rem; margin-top: 10px; opacity: 0.9; }
+    .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; }
 
     html[data-season="summer"] .hero { background-image: url("images/summer-hero.jpg"); }
     html[data-season="winter"] .hero { background-image: url("images/hero-winter-snowmen.jpg"); }
 
-    /* Sections */
-    .section { padding: 80px 20px; max-width: var(--max); margin: auto; }
-    .intro-text { font-size: 1.4rem; line-height: 1.5; max-width: 800px; }
-    
-    h2 { font-size: 2rem; margin-bottom: 30px; }
-
-    /* Grids */
-    .grid { display: grid; gap: 20px; margin-bottom: 40px; }
+    .section { padding: 60px 20px; max-width: var(--max); margin: auto; }
+    .grid { display: grid; gap: 20px; }
     .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
     .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 
-    .grid img { 
-      width: 100%; height: 350px; object-fit: cover; 
-      border-radius: var(--radius); border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
+    img { width: 100%; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .photo-grid img { height: 300px; object-fit: cover; }
 
-    /* Footer */
+    /* Where We Are Layout */
+    .location-card { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; background: var(--panel-bg); padding: 40px; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .location-info h2 { margin-top: 0; }
+    .location-info ul { padding-left: 20px; margin-top: 20px; }
+    .location-info li { margin-bottom: 12px; }
+
     .footer { background: var(--forest); color: #f3e5c9; padding: 60px 20px; text-align: center; }
-    .footer-content { max-width: var(--max); margin: auto; display: grid; gap: 40px; }
-    .footer-brand img { width: 80px; margin-bottom: 20px; filter: brightness(0) invert(1); }
-    .footer-details p { margin: 5px 0; opacity: 0.8; }
-    .reg-num { font-size: 0.75rem; margin-top: 20px; opacity: 0.5; letter-spacing: 1px; }
+    .reg-num { font-size: 0.75rem; margin-top: 20px; opacity: 0.5; }
 
-    @media (max-width: 600px) {
-      .section { padding: 50px 20px; }
-      .hero { height: 70vh; }
+    @media (max-width: 850px) {
+      .location-card { grid-template-columns: 1fr; padding: 20px; }
     }
   </style>
 </head>
-
 <body>
 
-<header class="site-header">
+<header>
   <div class="nav">
     <a href="#" class="brand">
       <img src="images/logans-loft-logo.jpg" alt="Logo">
@@ -111,16 +90,15 @@
 </section>
 
 <section class="section">
-  <div class="intro-text">
+  <div style="font-size: 1.4rem; max-width: 800px;">
     A place to live for a bit.<br>
-    Not a resort. Not a checklist.<br>
-    Just space — to slow down, cook, walk, and figure out the day.
+    Not a resort. Not a checklist. Just space — to slow down, cook, walk, and figure out the day.
   </div>
 </section>
 
 <section class="section">
   <h2 id="experience-title">The summer rhythm</h2>
-  <div class="grid grid-2">
+  <div class="grid grid-2 photo-grid">
     <img id="rhythm1" src="images/hero-morillon-sign-from-mountain-top.jpg">
     <img id="rhythm2" src="images/hero-mountain-scene.jpg">
   </div>
@@ -128,7 +106,7 @@
 
 <section class="section">
   <h2>The Space</h2>
-  <div class="grid grid-3">
+  <div class="grid grid-3 photo-grid">
     <img src="images/kitchen.jpg">
     <img src="images/whole-living-room.jpg">
     <img src="images/bedroom-master.jpg">
@@ -139,16 +117,23 @@
 </section>
 
 <section class="section">
-  <h2>Where it is</h2>
-  <p>A short walk from the Morillon village center and the cable car.</p>
-  <div style="border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow);">
-    <img src="images/map-pindrop.jpg" style="height: 450px; object-fit: cover;">
+  <div class="location-card">
+    <div class="location-map">
+      <img src="images/map-pindrop.jpg" alt="Map of Morillon" style="height: 100%; min-height: 350px; object-fit: cover;">
+    </div>
+    <div class="location-info">
+      <h2>Where we are</h2>
+      <p>Tucked away in Morillon, we're a short walk from the village center and the Grand Massif Express cable car.</p>
+      <h4 id="around-title">Around Morillon (Summer)</h4>
+      <ul id="around-list">
+        </ul>
+    </div>
   </div>
 </section>
 
 <section class="section">
-  <h3>Life around it</h3>
-  <div class="grid grid-3">
+  <h2>Life around it</h2>
+  <div class="grid grid-3 photo-grid">
     <img id="life1" src="images/cow.jpg">
     <img id="life2" src="images/food-1.jpg">
     <img id="life3" src="images/food-2.jpg">
@@ -156,23 +141,20 @@
 </section>
 
 <footer class="footer">
-  <div class="footer-content">
-    <div class="footer-brand">
-      <img src="images/r-n-l-french-logo.jpg" alt="Relaxed & Livin Logo">
-    </div>
-    <div class="footer-details">
-      <p><strong>Relaxed & Livin’</strong></p>
-      <p>Logan’s Loft — Morillon, France</p>
-      <p>hello@relaxedandlivin.com</p>
-      <p class="reg-num">Registration #: 7419000097735</p>
-    </div>
+  <div style="margin-bottom: 20px;">
+    <img src="images/r-n-l-french-logo.jpg" alt="Relaxed & Livin Logo" style="width: 80px; filter: brightness(0) invert(1); border:none; box-shadow:none;">
   </div>
+  <p><strong>Relaxed & Livin’</strong> | Logan’s Loft — Morillon, France</p>
+  <p>hello@relaxedandlivin.com</p>
+  <p class="reg-num">Registration #: 7419000097735</p>
 </footer>
 
 <script>
   const root = document.documentElement;
   const buttons = document.querySelectorAll("[data-season-button]");
   const expTitle = document.getElementById("experience-title");
+  const aroundTitle = document.getElementById("around-title");
+  const aroundList = document.getElementById("around-list");
   
   const r1 = document.getElementById("rhythm1");
   const r2 = document.getElementById("rhythm2");
@@ -182,6 +164,8 @@
   const content = {
     summer: { 
       title: "The summer rhythm",
+      aroundTitle: "Around Morillon (Summer)",
+      items: ["Lac Bleu leisure park & swimming", "Sixt-Fer-à-Cheval Nature Reserve", "Weekly Wednesday Village Market", "Mountain biking & hiking trails"],
       imgR1: "images/hero-morillon-sign-from-mountain-top.jpg",
       imgR2: "images/hero-mountain-scene.jpg",
       imgL1: "images/cow.jpg",
@@ -189,6 +173,8 @@
     },
     winter: { 
       title: "The winter rhythm",
+      aroundTitle: "Around Morillon (Winter)",
+      items: ["Ski-in access to the Grand Massif", "Grande Odyssée Sled Dog Race", "Torchlight descents & village festivals", "Ice skating at Lac Bleu"],
       imgR1: "images/gallery-winter-morillon-sign.jpg",
       imgR2: "images/hero-winter-mountian.jpg", 
       imgL1: "images/gallery-winter-ski-rack.jpg",
@@ -201,17 +187,16 @@
     buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.seasonButton === season));
     
     expTitle.textContent = content[season].title;
+    aroundTitle.textContent = content[season].aroundTitle;
+    aroundList.innerHTML = content[season].items.map(i => `<li>${i}</li>`).join('');
+    
     r1.src = content[season].imgR1;
     r2.src = content[season].imgR2;
     l1.src = content[season].imgL1;
     l2.src = content[season].imgL2;
   }
 
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => setSeason(btn.dataset.seasonButton));
-  });
-
-  // Default to summer
+  buttons.forEach(btn => btn.addEventListener("click", () => setSeason(btn.dataset.seasonButton)));
   setSeason("summer");
 </script>
 
