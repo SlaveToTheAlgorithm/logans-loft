@@ -31,6 +31,7 @@
     img { max-width: 100%; display: block; border-radius: var(--radius); }
     .container { width: min(calc(100% - 2rem), var(--max)); margin: 0 auto; }
     
+    /* Header */
     .site-header { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--page-bg) 92%, white 8%); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
     .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; }
     .brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; color: inherit; }
@@ -40,27 +41,38 @@
     .season-toggle button { border: 0; background: transparent; padding: 0.5rem 0.8rem; border-radius: 999px; cursor: pointer; font-weight: 700; color: var(--text-main); }
     .season-toggle button.active { background: var(--panel-bg); box-shadow: var(--shadow); }
     
+    /* Hero */
     .hero { padding: 4rem 0; background: var(--hero-wash), var(--hero-accent); }
     .hero-grid { display: grid; gap: 2rem; }
     .hero-image { aspect-ratio: 4 / 3; border-radius: var(--radius); background-size: cover; background-position: center; box-shadow: var(--shadow); border: 1px solid var(--line); transition: background-image 0.3s ease; }
-    
-    /* Background Images linked to your GitHub repository */
     html[data-season="summer"] .hero-image { background-image: url("images/summer-hero.jpg"); }
     html[data-season="winter"] .hero-image { background-image: url("images/hero-winter-snowmen.jpg"); }
 
+    /* Layout Sections */
     .section { padding: 4rem 0; }
     .section-muted { background: var(--muted-bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .grid-2, .grid-3, .gallery { display: grid; gap: 1.5rem; }
     .photo-img { width: 100%; height: 280px; object-fit: cover; border: 1px solid var(--line); box-shadow: var(--shadow); }
     .button { display: inline-flex; padding: 0.8rem 1.5rem; border-radius: 999px; font-weight: 600; background: var(--forest); color: white; margin-top: 1rem; text-decoration: none; }
     
+    /* Map */
     .map-container { margin-top: 1.5rem; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
     .map-img { width: 100%; height: 400px; object-fit: cover; }
+
+    /* Footer */
+    .site-footer { background: var(--text-main); color: var(--white); padding: 4rem 0 2rem; }
+    .footer-grid { display: grid; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand img { width: 80px; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+    .footer-links h4 { margin-top: 0; color: var(--mustard); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; }
+    .footer-links ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 0.5rem; opacity: 0.8; }
+    .legal { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.85rem; opacity: 0.6; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 
     @media (min-width: 768px) { 
       .hero-grid { grid-template-columns: 1.2fr 1fr; align-items: center; } 
       .grid-2 { grid-template-columns: 1fr 1fr; } 
       .grid-3, .gallery { grid-template-columns: repeat(3, 1fr); } 
+      .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
     }
   </style>
 </head>
@@ -118,6 +130,7 @@
     <section class="section">
       <div class="container">
         <h3>Life around it</h3>
+        <p id="life-copy">Local markets, alpine trails, and the quiet of the village.</p>
         <div class="grid-3">
           <img id="life1" class="photo-img" src="images/cow.jpg" alt="Alpine Life" />
           <img id="life2" class="photo-img" src="images/food-1.jpg" alt="Local Food" />
@@ -137,31 +150,81 @@
     </section>
   </main>
 
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/r-n-l-french-logo.jpg" alt="Relaxed & Livin Logo" />
+          <p>Practical alpine stays for those who value the mountain over the marble.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Highlights</h4>
+          <ul id="footer-highlights">
+            <li>Morillon Village Market (Wednesdays)</li>
+            <li>Lake Bleu Leisure Park</li>
+            <li>Sixt-Fer-à-Cheval Nature Reserve</li>
+            <li>Grand Massif Express</li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <ul>
+            <li>Blue Dog Management</li>
+            <li>Phone: +33 (0) X XX XX XX XX</li>
+            <li>Email: hello@relaxedandlivin.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="legal">
+        <div>© 2026 Relaxed & Livin'. All rights reserved.</div>
+        <div>Morillon, French Alps</div>
+      </div>
+    </div>
+  </footer>
+
   <script>
     const root = document.documentElement;
     const buttons = document.querySelectorAll("[data-season-button]");
     const heroCopy = document.getElementById("hero-copy");
     const expTitle = document.getElementById("experience-title");
+    const lifeCopy = document.getElementById("life-copy");
+    const footerHighlights = document.getElementById("footer-highlights");
     
-    // Select elements that swap based on season
     const r1 = document.getElementById("rhythm1");
     const r2 = document.getElementById("rhythm2");
     const l1 = document.getElementById("life1");
+    const l2 = document.getElementById("life2");
 
     const content = {
       summer: { 
         copy: "Built for summer days that start slow and end when they feel like it.", 
         title: "The summer rhythm",
+        life: "Local markets, alpine trails, and the quiet of the village.",
         imgR1: "images/hero-morillon-sign-from-mountain-top.jpg",
         imgR2: "images/hero-mountain-scene.jpg",
-        imgL1: "images/cow.jpg"
+        imgL1: "images/cow.jpg",
+        imgL2: "images/food-1.jpg",
+        highlights: [
+          "Morillon Village Market (Wednesdays)",
+          "Swimming at Lac Bleu",
+          "Hiking Sixt-Fer-à-Cheval",
+          "Downhill Mountain Biking"
+        ]
       },
       winter: { 
         copy: "Snow outside, mountains in front of you. A cleaner kind of day.", 
         title: "The winter rhythm",
+        life: "Ski-in/out access, village festivals, and the best of the Grand Massif.",
         imgR1: "images/gallery-winter-morillon-sign.jpg",
-        imgR2: "images/hero-winter-mountian.jpg", // Matched intentional filename typo
-        imgL1: "images/gallery-winter-ski-rack.jpg"
+        imgR2: "images/hero-winter-mountian.jpg",
+        imgL1: "images/gallery-winter-ski-rack.jpg",
+        imgL2: "images/gallery-french-market.jpg", // Swapped for Winter
+        highlights: [
+          "Grand Odyssée Sled Dog Race",
+          "Village Torchlight Descents",
+          "Grand Massif Skiing (265km of runs)",
+          "Winter Market & Vin Chaud"
+        ]
       }
     };
 
@@ -171,18 +234,21 @@
       
       heroCopy.textContent = content[season].copy;
       expTitle.textContent = content[season].title;
+      lifeCopy.textContent = content[season].life;
       
-      // Update specific gallery images
       r1.src = content[season].imgR1;
       r2.src = content[season].imgR2;
       l1.src = content[season].imgL1;
+      l2.src = content[season].imgL2;
+
+      // Update Footer Highlights
+      footerHighlights.innerHTML = content[season].highlights.map(item => `<li>${item}</li>`).join('');
     }
 
     buttons.forEach(btn => {
       btn.addEventListener("click", () => setSeason(btn.dataset.seasonButton));
     });
 
-    // Default to summer on load
     setSeason("summer");
   </script>
 </body>
