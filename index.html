@@ -4,11 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Relaxed &amp; Livin' presents Logan's Loft | Morillon, French Alps</title>
-  <meta name="description" content="A practical alpine stay in the heart of Morillon. Sleeps up to 10." />
   <link rel="icon" href="images/logans-loft-logo.jpg" type="image/jpeg" />
 
   <style>
-    /* CSS matched exactly to your filename screenshots in images/ folder */
     :root {
       --forest: #234738; --teal: #2E6B6C; --mustard: #E3A642; --white: #fffdf8;
       --line: rgba(29, 60, 60, 0.12); --shadow: 0 10px 30px rgba(29, 60, 60, 0.08);
@@ -32,28 +30,38 @@
     body { margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--page-bg); color: var(--text-main); line-height: 1.6; }
     img { max-width: 100%; display: block; border-radius: var(--radius); }
     .container { width: min(calc(100% - 2rem), var(--max)); margin: 0 auto; }
+    
     .site-header { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--page-bg) 92%, white 8%); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
     .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; }
-    .brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+    .brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; color: inherit; }
     .brand img { width: 52px; height: 52px; object-fit: contain; border-radius: 14px; background: white; border: 1px solid var(--line); }
+    
     .season-toggle { display: inline-flex; background: var(--toggle-bg); border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem; }
     .season-toggle button { border: 0; background: transparent; padding: 0.5rem 0.8rem; border-radius: 999px; cursor: pointer; font-weight: 700; color: var(--text-main); }
     .season-toggle button.active { background: var(--panel-bg); box-shadow: var(--shadow); }
+    
     .hero { padding: 4rem 0; background: var(--hero-wash), var(--hero-accent); }
     .hero-grid { display: grid; gap: 2rem; }
-    .hero-image { aspect-ratio: 4 / 3; border-radius: var(--radius); background-size: cover; background-position: center; box-shadow: var(--shadow); border: 1px solid var(--line); }
+    .hero-image { aspect-ratio: 4 / 3; border-radius: var(--radius); background-size: cover; background-position: center; box-shadow: var(--shadow); border: 1px solid var(--line); transition: background-image 0.3s ease; }
     
-    /* Background Images fixed to your screenshot paths */
+    /* Background Images linked to your GitHub repository */
     html[data-season="summer"] .hero-image { background-image: url("images/summer-hero.jpg"); }
-    html[data-season="winter"] .hero-image { background-image: url("images/winter-hero.jpg"); }
-    
+    html[data-season="winter"] .hero-image { background-image: url("images/hero-winter-snowmen.jpg"); }
+
     .section { padding: 4rem 0; }
     .section-muted { background: var(--muted-bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .grid-2, .grid-3, .gallery { display: grid; gap: 1.5rem; }
     .photo-img { width: 100%; height: 280px; object-fit: cover; border: 1px solid var(--line); box-shadow: var(--shadow); }
     .button { display: inline-flex; padding: 0.8rem 1.5rem; border-radius: 999px; font-weight: 600; background: var(--forest); color: white; margin-top: 1rem; text-decoration: none; }
     
-    @media (min-width: 768px) { .hero-grid { grid-template-columns: 1.2fr 1fr; align-items: center; } .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3, .gallery { grid-template-columns: repeat(3, 1fr); } }
+    .map-container { margin-top: 1.5rem; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
+    .map-img { width: 100%; height: 400px; object-fit: cover; }
+
+    @media (min-width: 768px) { 
+      .hero-grid { grid-template-columns: 1.2fr 1fr; align-items: center; } 
+      .grid-2 { grid-template-columns: 1fr 1fr; } 
+      .grid-3, .gallery { grid-template-columns: repeat(3, 1fr); } 
+    }
   </style>
 </head>
 <body>
@@ -87,16 +95,15 @@
       <div class="container">
         <h2 id="experience-title">The summer rhythm</h2>
         <div class="grid-2">
-          <img class="photo-img" src="images/hero-morillon-sign-from-mountain-top.jpg" alt="Morillon Sign" />
-          <img class="photo-img" src="images/hero-mountain-scene.jpg" alt="Mountain Scene" />
+          <img id="rhythm1" class="photo-img" src="images/hero-morillon-sign-from-mountain-top.jpg" alt="Local Rhythm" />
+          <img id="rhythm2" class="photo-img" src="images/hero-mountain-scene.jpg" alt="The View" />
         </div>
       </div>
     </section>
 
-    <section id="gallery" class="section section-muted">
+    <section class="section section-muted">
       <div class="container">
         <h3>The space</h3>
-        <p>Warm, simple, and useful. The layout is solid. These images show the house you're booking.</p>
         <div class="gallery">
           <img class="photo-img" src="images/kitchen.jpg" alt="Kitchen" />
           <img class="photo-img" src="images/whole-living-room.jpg" alt="Living Room" />
@@ -112,9 +119,19 @@
       <div class="container">
         <h3>Life around it</h3>
         <div class="grid-3">
-          <img class="photo-img" src="images/cow.jpg" alt="Alpine Cow" />
-          <img class="photo-img" src="images/food-1.jpg" alt="Local Food" />
-          <img class="photo-img" src="images/food-2.jpg" alt="Local Dish" />
+          <img id="life1" class="photo-img" src="images/cow.jpg" alt="Alpine Life" />
+          <img id="life2" class="photo-img" src="images/food-1.jpg" alt="Local Food" />
+          <img id="life3" class="photo-img" src="images/food-2.jpg" alt="Local Dish" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <h3>Where we are</h3>
+        <p>A short walk from the Morillon village center and the cable car.</p>
+        <div class="map-container">
+          <img src="images/map-pindrop.jpg" alt="Map of Morillon" class="map-img" />
         </div>
       </div>
     </section>
@@ -125,15 +142,26 @@
     const buttons = document.querySelectorAll("[data-season-button]");
     const heroCopy = document.getElementById("hero-copy");
     const expTitle = document.getElementById("experience-title");
+    
+    // Select elements that swap based on season
+    const r1 = document.getElementById("rhythm1");
+    const r2 = document.getElementById("rhythm2");
+    const l1 = document.getElementById("life1");
 
     const content = {
       summer: { 
         copy: "Built for summer days that start slow and end when they feel like it.", 
-        title: "The summer rhythm" 
+        title: "The summer rhythm",
+        imgR1: "images/hero-morillon-sign-from-mountain-top.jpg",
+        imgR2: "images/hero-mountain-scene.jpg",
+        imgL1: "images/cow.jpg"
       },
       winter: { 
         copy: "Snow outside, mountains in front of you. A cleaner kind of day.", 
-        title: "The winter rhythm" 
+        title: "The winter rhythm",
+        imgR1: "images/gallery-winter-morillon-sign.jpg",
+        imgR2: "images/hero-winter-mountian.jpg", // Matched intentional filename typo
+        imgL1: "images/gallery-winter-ski-rack.jpg"
       }
     };
 
@@ -143,12 +171,18 @@
       
       heroCopy.textContent = content[season].copy;
       expTitle.textContent = content[season].title;
+      
+      // Update specific gallery images
+      r1.src = content[season].imgR1;
+      r2.src = content[season].imgR2;
+      l1.src = content[season].imgL1;
     }
 
     buttons.forEach(btn => {
       btn.addEventListener("click", () => setSeason(btn.dataset.seasonButton));
     });
 
+    // Default to summer on load
     setSeason("summer");
   </script>
 </body>
