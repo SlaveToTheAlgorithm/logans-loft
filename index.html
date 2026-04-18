@@ -34,7 +34,7 @@
     .season-toggle button.active { background: var(--panel-bg); box-shadow: var(--shadow); }
 
     .hero { 
-      height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+      height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
       background-size: cover; background-position: center; position: relative; transition: background-image 0.5s ease-in-out;
     }
     .hero::before { content: ""; position: absolute; inset: 0; background: var(--hero-wash); }
@@ -52,17 +52,20 @@
     img { width: 100%; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); }
     .photo-grid img { height: 300px; object-fit: cover; }
 
-    /* Where We Are Layout */
-    .location-card { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; background: var(--panel-bg); padding: 40px; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); }
-    .location-info h2 { margin-top: 0; }
-    .location-info ul { padding-left: 20px; margin-top: 20px; }
-    .location-info li { margin-bottom: 12px; }
+    /* Layout Cards */
+    .card { background: var(--panel-bg); padding: 40px; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .location-card { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    
+    /* Support & About Layout */
+    .support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+    .support-box { padding: 20px; border-radius: 12px; background: rgba(29, 60, 60, 0.03); border: 1px solid var(--line); }
 
     .footer { background: var(--forest); color: #f3e5c9; padding: 60px 20px; text-align: center; }
+    .social-links a { color: white; margin: 0 10px; text-decoration: none; font-size: 0.9rem; }
     .reg-num { font-size: 0.75rem; margin-top: 20px; opacity: 0.5; }
 
     @media (max-width: 850px) {
-      .location-card { grid-template-columns: 1fr; padding: 20px; }
+      .location-card, .support-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -90,9 +93,14 @@
 </section>
 
 <section class="section">
-  <div style="font-size: 1.4rem; max-width: 800px;">
-    A place to live for a bit.<br>
-    Not a resort. Not a checklist. Just space — to slow down, cook, walk, and figure out the day.
+  <div class="card">
+    <h2>Our Story</h2>
+    <div style="column-count: 2; column-gap: 40px; column-width: 300px;">
+      <p>Tucked in the French Alps, right next to the gondola in Morillon, this place started as a crazy idea—and somehow turned into something real. We’re from Huntington Beach, California, and come from a family of educators. Owning a holiday home in France? That’s a dream come true. But a place like this isn’t much good unless we can share it.</p>
+      <p>If you're anything like us—people who love good meals, big views, fresh air, and the kind of quiet you can’t get in a city—then you’ll get it. We’ve kept it simple, grounded, and warm—just the way we like it.</p>
+      <p>The apartment sleeps up to 10: eight in beds and two on the futon. It’s big enough for your whole crew—family, friends, or a mix of both. It’s not fancy, but it’s honest. Comfortable. Easy to settle into. The kind of place you come back to.</p>
+      <p>After a day out, come back and soak in the whirlpool tub (it really is heaven), gather around the big dining table for a home-cooked meal, or kick back on the balcony as the sun drops behind the peaks.</p>
+    </div>
   </div>
 </section>
 
@@ -114,19 +122,19 @@
     <img src="images/bedroom-triple.jpg">
     <img src="images/master-bath2.jpg">
   </div>
+  <p style="margin-top: 20px; opacity: 0.8;">Stream your favorite shows on the Smart TV, pop in a DVD, or fire up the PlayStation for hours of entertainment.</p>
 </section>
 
 <section class="section">
-  <div class="location-card">
+  <div class="card location-card">
     <div class="location-map">
       <img src="images/map-pindrop.jpg" alt="Map of Morillon" style="height: 100%; min-height: 350px; object-fit: cover;">
     </div>
     <div class="location-info">
       <h2>Where we are</h2>
-      <p>Tucked away in Morillon, we're a short walk from the village center and the Grand Massif Express cable car.</p>
+      <p>Right next to the gondola, you’re just steps from fresh tracks in winter or miles of alpine trails in summer. Lac Bleu is a short stroll away—perfect for swimming or just stretching out by the water.</p>
       <h4 id="around-title">Around Morillon (Summer)</h4>
-      <ul id="around-list">
-        </ul>
+      <ul id="around-list"></ul>
     </div>
   </div>
 </section>
@@ -140,12 +148,37 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="card">
+    <h2>Guest Support</h2>
+    <p>We want your stay to be seamless. Please use the appropriate contact based on your needs:</p>
+    <div class="support-grid">
+      <div class="support-box">
+        <strong>Urgent Issues During Stay</strong>
+        <p style="font-size: 0.9rem;">For access issues, heating, or emergency maintenance, contact our local team:</p>
+        <p><strong>Blue Dog Property Management</strong><br>+33 7 66 42 65 74</p>
+        <small>*After-hours calls for emergencies only.</small>
+      </div>
+      <div class="support-box">
+        <strong>General Questions</strong>
+        <p style="font-size: 0.9rem;">For activity recommendations or restaurant advice, reach out via:</p>
+        <p><strong>VRBO Messaging System</strong><br>or <a href="mailto:contact@relaxedandlivin.com">contact@relaxedandlivin.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div style="margin-bottom: 20px;">
     <img src="images/r-n-l-french-logo.jpg" alt="Relaxed & Livin Logo" style="width: 80px; filter: brightness(0) invert(1); border:none; box-shadow:none;">
   </div>
-  <p><strong>Relaxed & Livin’</strong> | Logan’s Loft — Morillon, France</p>
-  <p>hello@relaxedandlivin.com</p>
+  <div class="social-links">
+    <a href="https://www.youtube.com/@RelaxedandLivin/" target="_blank">YouTube</a>
+    <a href="https://www.facebook.com/relaxedandlivin" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/relaxedandlivin/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@relaxedandlivin" target="_blank">TikTok</a>
+  </div>
+  <p style="margin-top:20px;"><strong>Relaxed & Livin’</strong> | Logan’s Loft — Morillon, France</p>
   <p class="reg-num">Registration #: 7419000097735</p>
 </footer>
 
@@ -165,7 +198,7 @@
     summer: { 
       title: "The summer rhythm",
       aroundTitle: "Around Morillon (Summer)",
-      items: ["Lac Bleu leisure park & swimming", "Sixt-Fer-à-Cheval Nature Reserve", "Weekly Wednesday Village Market", "Mountain biking & hiking trails"],
+      items: ["Lac Bleu leisure park & swimming", "Sixt-Fer-à-Cheval Nature Reserve", "Weekly Wednesday Village Market", "Mountain biking & alpine hiking"],
       imgR1: "images/hero-morillon-sign-from-mountain-top.jpg",
       imgR2: "images/hero-mountain-scene.jpg",
       imgL1: "images/cow.jpg",
@@ -185,11 +218,9 @@
   function setSeason(season) {
     root.setAttribute("data-season", season);
     buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.seasonButton === season));
-    
     expTitle.textContent = content[season].title;
     aroundTitle.textContent = content[season].aroundTitle;
     aroundList.innerHTML = content[season].items.map(i => `<li>${i}</li>`).join('');
-    
     r1.src = content[season].imgR1;
     r2.src = content[season].imgR2;
     l1.src = content[season].imgL1;
