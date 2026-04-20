@@ -1,96 +1,575 @@
 <!DOCTYPE html>
 <html lang="en" data-season="summer">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logan's Loft - French Alps</title>
-    <style>
-        /* Your existing CSS variables and base styles */
-        :root {
-            --bg: #fdfcfb;
-            --forest: #234738;
-            --clay: #b25841;
-            --mustard: #e3a642;
-            --slate: #4a5d5a;
-            --cream: #f8f5e9;
-            --snow: #f8fbff;
-            --burnt: #8b4513;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logan's Loft | Morillon, French Alps</title>
+  <meta
+    name="description"
+    content="Logan's Loft is a grounded alpine stay in Morillon, France. Steps from the gondola, close to the lake, and built for real family mountain time."
+  />
 
-        /* [NEW] Specific fix for Footer Logos */
-        .footer-logos {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            padding: 10px;
-            position: relative;
-            z-index: 10; /* Ensures images are on top of background layers */
-        }
+  <style>
+    :root {
+      --bg: #fdfcfb;
+      --forest: #234738;
+      --teal: #2e6b6c;
+      --mustard: #e3a642;
+      --burnt: #d2762c;
+      --cream: #f3e5c9;
+      --slate: #1d3c3c;
+      --snow: #f8fbff;
+      --border: rgba(35, 71, 56, 0.14);
+      --shadow: 0 10px 30px rgba(29, 60, 60, 0.08);
+      --max: 1200px;
+    }
 
-        .footer-logos img {
-            height: 60px; /* Fixed height so they don't squash */
-            width: auto;
-            display: block;
-            border-radius: 4px;
-            transition: transform 0.2s ease;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        .footer-logos img:hover {
-            transform: scale(1.05);
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        /* The rest of your original CSS goes here... */
-        body { font-family: Inter, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--forest); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        .footer { padding: 4rem 0 2rem; border-top: 1px solid var(--forest); text-align: center; }
-    </style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--forest);
+      line-height: 1.55;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(253, 252, 251, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .site-header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .nav a {
+      opacity: 0.82;
+    }
+
+    .nav a:hover {
+      opacity: 1;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 78vh;
+      display: grid;
+      align-items: end;
+      color: white;
+      background: var(--slate);
+      overflow: hidden;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(15, 28, 28, 0.72), rgba(15, 28, 28, 0.18)),
+        linear-gradient(to right, rgba(15, 28, 28, 0.28), rgba(15, 28, 28, 0.05));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 6rem 0 4rem;
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.35rem 0.7rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.08);
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4.75rem);
+      line-height: 0.95;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-copy {
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      max-width: 58ch;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.85rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--mustard);
+      color: var(--slate);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(0.98);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.16);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+
+    .section-intro h2 {
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.02;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-intro p {
+      font-size: 1.05rem;
+      color: rgba(29, 60, 60, 0.82);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: rgba(29, 60, 60, 0.78);
+    }
+
+    .space-image,
+    .location-image {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 420px;
+      background: var(--cream);
+    }
+
+    .space-image img,
+    .location-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem 1.5rem;
+      padding: 0;
+      margin: 1.5rem 0 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    .location-band {
+      background: linear-gradient(180deg, rgba(46,107,108,0.06), rgba(227,166,66,0.06));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cta {
+      text-align: center;
+      background: var(--forest);
+      color: white;
+    }
+
+    .cta .section-intro {
+      margin-inline: auto;
+    }
+
+    .cta .section-intro p {
+      color: rgba(255,255,255,0.84);
+    }
+
+    .footer {
+      padding: 3rem 0 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      background: var(--bg);
+    }
+
+    .footer p {
+      color: rgba(29, 60, 60, 0.75);
+      margin: 0.4rem 0;
+    }
+
+    .footer-logos {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding: 10px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-logos img {
+      height: 60px;
+      width: auto;
+      display: block;
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+    }
+
+    .footer-logos img:hover {
+      transform: scale(1.04);
+    }
+
+    .fine-print {
+      margin-top: 1rem;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .split,
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 68vh;
+      }
+
+      .site-header-inner {
+        padding: 0.9rem 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="container">
-            <a href="#" class="brand"><strong>Logan's Loft</strong></a>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="#" class="brand">Logan's Loft</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#space">The Space</a>
+        <a href="#location">Where You Are</a>
+        <a href="#details">Details</a>
+        <a href="#book">Book</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="hero" aria-label="Hero">
+      <div class="hero-media">
+        <img src="images/summer-hero.jpg" alt="Balcony and mountain view from Logan's Loft in Morillon, France" />
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content">
+        <div class="eyebrow">Morillon, French Alps</div>
+        <h1>Live here for a bit.</h1>
+        <p class="hero-copy">
+          Steps from the gondola. Close to the lake. Built for slow mornings,
+          mountain air, and the kind of trip that feels more like living than leaving.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#book">Check Availability</a>
+          <a class="btn btn-secondary" href="#space">See the Space</a>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main id="main-content">
-        </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-wrapper">
-                <strong>Logan's Loft</strong>
-                <p>Relaxed & Livin' — Where comfort meets adventure.</p>
-                
-                <div class="footer-logos">
-                    <img src="images/r-n-l-french-logo.jpg" alt="Relaxed & Livin Logo">
-                    <img src="images/logans-loft-logo.jpg" alt="Logan's Loft Logo">
-                </div>
+    <section id="space">
+      <div class="container">
+        <div class="split">
+          <div>
+            <div class="section-intro">
+              <h2>The Space</h2>
+              <p>
+                Not a resort. Not a checklist. Just a solid alpine base for families
+                and groups who want room to settle in.
+              </p>
             </div>
+
+            <div class="card-grid">
+              <article class="card">
+                <h3>Sleep 10 comfortably</h3>
+                <p>Three bedrooms, practical layout, and enough room for an actual stay.</p>
+              </article>
+
+              <article class="card">
+                <h3>Balcony views</h3>
+                <p>Morning light, west-facing sunsets, and a reason to stay outside a little longer.</p>
+              </article>
+
+              <article class="card">
+                <h3>Family-ready</h3>
+                <p>Cook, regroup, dry gear, head back out. It works the way a mountain place should.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="space-image">
+            <img src="images/bedrooms.jpg" alt="Interior of Logan's Loft showing cozy alpine bedroom and living space" />
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        /* Your Seasonal Toggle Script */
-        const content = {
-            summer: {
-                heroTitle: "A sun-drenched escape in the French Alps.",
-                heroCopy: "Experience Morzine in full bloom."
-            },
-            winter: {
-                heroTitle: "A cozy alpine basecamp in Morzine.",
-                heroCopy: "Step out into a winter wonderland."
-            }
-        };
+    <section id="location" class="location-band">
+      <div class="container">
+        <div class="split">
+          <div class="location-image">
+            <img src="images/map-pin-drop.jpg" alt="Map showing Logan's Loft in Morillon, Haute-Savoie, France" />
+          </div>
 
-        function setSeason(season) {
-            document.documentElement.setAttribute('data-season', season);
-            // Updating text based on season
-        }
-        // Initialize season
-        setSeason('summer');
-    </script>
+          <div>
+            <div class="section-intro">
+              <h2>Where You Are</h2>
+              <p>
+                In the heart of Morillon, Haute-Savoie. Gondola at the door.
+                Village center a short walk. Geneva easy. Chamonix and Annecy close enough for the day.
+              </p>
+            </div>
+
+            <div class="card-grid">
+              <article class="card">
+                <h3>Easy to reach</h3>
+                <p>Fly into Geneva, then drive or shuttle in. From there, buses and lifts connect the valley and the Grand Massif.</p>
+              </article>
+
+              <article class="card">
+                <h3>The right pace</h3>
+                <p>Markets, festivals, mountain food, and a rhythm that doesn’t ask much from you.</p>
+              </article>
+
+              <article class="card">
+                <h3>Year-round base</h3>
+                <p>Winter skiing, summer lake days, trails, river walks, and enough quiet between them.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="details">
+      <div class="container">
+        <div class="section-intro">
+          <h2>What’s Here</h2>
+          <p>
+            The practical stuff matters. So here it is, plainly.
+          </p>
+        </div>
+
+        <ul class="feature-list">
+          <li>Sleeps 10</li>
+          <li>Steps from the Morillon gondola</li>
+          <li>Private underground parking</li>
+          <li>Private ski locker</li>
+          <li>Free WiFi</li>
+          <li>Family-friendly setup</li>
+          <li>Balcony mountain views</li>
+          <li>Restaurants and cafés nearby</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="book" class="cta">
+      <div class="container">
+        <div class="section-intro">
+          <h2>Ready to Book?</h2>
+          <p>
+            Check availability, take the virtual tour, and book through VRBO.
+          </p>
+        </div>
+
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn btn-primary" href="https://www.vrbo.com/4555980?dateless=true" target="_blank" rel="noopener">
+            View Availability
+          </a>
+          <a class="btn btn-secondary" href="mailto:relaxedandlivin@gmail.com">
+            Ask a Question
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <strong>Logan's Loft</strong>
+      <p>Morillon, Grand Massif, Haute-Savoie, France</p>
+      <p class="fine-print">
+        Sleeps 10 • Balcony Views • Private Parking • Ski Locker • Family Friendly
+      </p>
+
+      <div class="footer-logos">
+        <img src="./images/r-n-l-french-logo.jpg" alt="Relaxed & Livin Logo" />
+        <img src="./images/logans-loft-logo.jpg" alt="Logan's Loft Logo" />
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const seasonalContent = {
+      summer: {
+        heroImage: "images/summer-hero.jpg",
+        heroAlt: "Summer mountain view from Logan's Loft in Morillon",
+        heroTitle: "Live here for a bit.",
+        heroCopy:
+          "Steps from the lake and village center. Built for slow mornings, open windows, and long alpine days.",
+      },
+      winter: {
+        heroImage: "images/winter-hero.jpg",
+        heroAlt: "Winter mountain view from Logan's Loft in Morillon",
+        heroTitle: "Live here for a bit.",
+        heroCopy:
+          "Steps from the gondola. Built for first tracks, dry gear, and quiet evenings back inside.",
+      }
+    };
+
+    function setSeason(season) {
+      const data = seasonalContent[season];
+      if (!data) return;
+
+      document.documentElement.setAttribute("data-season", season);
+
+      const heroImg = document.querySelector(".hero-media img");
+      const heroTitle = document.querySelector(".hero h1");
+      const heroCopy = document.querySelector(".hero-copy");
+
+      if (heroImg) {
+        heroImg.src = data.heroImage;
+        heroImg.alt = data.heroAlt;
+      }
+
+      if (heroTitle) heroTitle.textContent = data.heroTitle;
+      if (heroCopy) heroCopy.textContent = data.heroCopy;
+    }
+
+    setSeason("summer");
+  </script>
 </body>
 </html>
