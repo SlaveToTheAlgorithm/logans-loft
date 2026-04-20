@@ -1,36 +1,96 @@
-padding: 80px 20px; 
-text-align: center; 
-}
-    .footer-logos { 
-      display: flex; 
-      justify-content: center; 
-      gap: 40px; 
-      align-items: center; 
-      margin-bottom: 30px; 
-    }
-    .footer-logos img { 
-      width: 80px; 
-      height: auto; 
-      border-radius: 8px; 
-      border: none; 
-      box-shadow: none; 
-      filter: brightness(0) invert(1); 
-   .footer-logos {
-    display: flex;
-    gap: 20px;
-    justify-content: center; /* Centers them in the footer */
-    margin-top: 20px;
-    position: relative; 
-    z-index: 10; /* Pulls them to the top layer */
-}
+<!DOCTYPE html>
+<html lang="en" data-season="summer">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logan's Loft - French Alps</title>
+    <style>
+        /* Your existing CSS variables and base styles */
+        :root {
+            --bg: #fdfcfb;
+            --forest: #234738;
+            --clay: #b25841;
+            --mustard: #e3a642;
+            --slate: #4a5d5a;
+            --cream: #f8f5e9;
+            --snow: #f8fbff;
+            --burnt: #8b4513;
+        }
 
-.footer-logos img {
-    height: 60px; /* Adjust this to the size you want */
-    width: auto;
-    display: inline-block;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-}
-.social-links a { 
-color: white; 
+        /* [NEW] Specific fix for Footer Logos */
+        .footer-logos {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            padding: 10px;
+            position: relative;
+            z-index: 10; /* Ensures images are on top of background layers */
+        }
+
+        .footer-logos img {
+            height: 60px; /* Fixed height so they don't squash */
+            width: auto;
+            display: block;
+            border-radius: 4px;
+            transition: transform 0.2s ease;
+        }
+
+        .footer-logos img:hover {
+            transform: scale(1.05);
+        }
+
+        /* The rest of your original CSS goes here... */
+        body { font-family: Inter, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--forest); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .footer { padding: 4rem 0 2rem; border-top: 1px solid var(--forest); text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="brand"><strong>Logan's Loft</strong></a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-wrapper">
+                <strong>Logan's Loft</strong>
+                <p>Relaxed & Livin' — Where comfort meets adventure.</p>
+                
+                <div class="footer-logos">
+                    <img src="./images/r-n-l-french-logo.jpg" alt="Relaxed & Livin Logo">
+                    <img src="./images/logans-loft-logo.jpg" alt="Logan's Loft Logo">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* Your Seasonal Toggle Script */
+        const content = {
+            summer: {
+                heroTitle: "A sun-drenched escape in the French Alps.",
+                heroCopy: "Experience Morzine in full bloom."
+            },
+            winter: {
+                heroTitle: "A cozy alpine basecamp in Morzine.",
+                heroCopy: "Step out into a winter wonderland."
+            }
+        };
+
+        function setSeason(season) {
+            document.documentElement.setAttribute('data-season', season);
+            // Updating text based on season
+        }
+        // Initialize season
+        setSeason('summer');
+    </script>
+</body>
+</html>
