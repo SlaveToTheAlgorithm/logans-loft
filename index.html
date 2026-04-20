@@ -145,20 +145,22 @@
       padding: 80px 20px; 
       text-align: center; 
     }
-    .footer-logos { 
-      display: flex; 
-      justify-content: center; 
-      gap: 40px; 
-      align-items: center; 
-      margin-bottom: 30px; 
-    }
-    .footer-logos img { 
-      width: 80px; 
-      height: auto; 
-      border-radius: 8px; 
-      border: none; 
-      box-shadow: none; 
-      filter: brightness(0) invert(1); 
+   .footer-logos {
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* Centers them in the footer */
+    margin-top: 20px;
+    position: relative; 
+    z-index: 10; /* Pulls them to the top layer */
+}
+
+.footer-logos img {
+    height: 60px; /* Adjust this to the size you want */
+    width: auto;
+    display: inline-block;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
     }
     .social-links a { 
       color: white; 
