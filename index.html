@@ -6,6 +6,8 @@
   <title>Logan’s Loft — A Relaxed & Livin’ Alpine Retreat</title>
   <link rel="icon" href="images/logans-loft-logo.jpg" type="image/jpeg" />
 
+  <link rel="stylesheet" href="https://use.typekit.net/iuc7oyh.css">
+
   <style>
     :root {
       --forest: #1d3c3c; 
@@ -41,6 +43,14 @@
       transition: background 0.5s ease; 
     }
     
+    /* Apply Six Hands Chalk to Headings */
+    h1, h2, h3, .brand span {
+      font-family: "six-hands-chalk", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      text-transform: none;
+    }
+
     .nav { 
       display: flex; 
       align-items: center; 
@@ -55,8 +65,8 @@
       gap: 12px; 
       text-decoration: none; 
       color: inherit; 
-      font-weight: 700; 
     }
+    .brand span { font-size: 1.5rem; }
     .brand img { width: 40px; height: 40px; border-radius: 8px; }
 
     .season-toggle { 
@@ -78,7 +88,11 @@
     }
     .hero::before { content: ""; position: absolute; inset: 0; background: var(--hero-wash); }
     .hero-content { position: relative; z-index: 1; padding: 20px; }
-    .hero h1 { font-size: clamp(3rem, 10vw, 5rem); margin: 0; font-weight: 800; letter-spacing: -0.03em; }
+    .hero h1 { 
+      font-size: clamp(4rem, 15vw, 8rem); 
+      margin: 0; 
+      line-height: 1;
+    }
 
     .booking-station {
         display: flex;
@@ -123,8 +137,8 @@
     .location-card { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
 
     .story-content { max-width: 800px; }
+    .story-content h2 { font-size: 3rem; margin-bottom: 1.5rem; }
     .story-content p { margin-bottom: 1.2rem; font-size: 1.1rem; }
-    .story-content p:last-child { margin-bottom: 0; }
 
     .footer { background: var(--forest); color: #f3e5c9; padding: 100px 20px; text-align: center; }
     .footer-logos { display: flex; justify-content: center; gap: 60px; margin-bottom: 40px; }
@@ -134,7 +148,6 @@
       user-select: none; 
       -webkit-user-drag: none; 
       pointer-events: none;
-      /* Removed the white invert filter so the actual image shows */
     }
     .social-links a { color: white; margin: 0 15px; text-decoration: none; opacity: 0.7; transition: 0.3s; }
     .social-links a:hover { opacity: 1; }
