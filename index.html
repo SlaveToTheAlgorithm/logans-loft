@@ -67,7 +67,7 @@
     }
     .season-toggle button { 
       border: 0; background: transparent; padding: 6px 16px; border-radius: 999px; cursor: pointer; 
-      font-weight: 600; color: var(--text-main); font-size: 0.85rem; 
+      font-weight: 600; color: var(--text-main); font-size: 0.85rem; transition: 0.3s ease;
     }
     .season-toggle button.active { background: var(--panel-bg); box-shadow: var(--shadow); }
 
@@ -80,7 +80,6 @@
     .hero-content { position: relative; z-index: 1; padding: 20px; }
     .hero h1 { font-size: clamp(3rem, 10vw, 5rem); margin: 0; font-weight: 800; letter-spacing: -0.03em; }
 
-    /* Booking Station Styles */
     .booking-station {
         display: flex;
         gap: 15px;
@@ -100,7 +99,7 @@
     }
     .btn-airbnb { background: #FF385C; color: white; border: 1px solid #FF385C; }
     .btn-vrbo { background: white; color: #002745; border: 1px solid #002745; }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); opacity: 0.9; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
     html[data-season="summer"] .hero { background-image: url("images/summer-hero.jpg"); }
     html[data-season="winter"] .hero { background-image: url("images/winter-hero.jpg"); }
@@ -110,7 +109,14 @@
     .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
     .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 
-    img { width: 100%; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    img { 
+      width: 100%; 
+      border-radius: var(--radius); 
+      border: 1px solid var(--line); 
+      box-shadow: var(--shadow);
+      transition: transform 0.4s ease;
+    }
+    .photo-grid img:hover { transform: scale(1.02); }
     .photo-grid img { height: 350px; object-fit: cover; }
 
     .card { background: var(--panel-bg); padding: 50px; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); }
@@ -118,13 +124,20 @@
 
     .footer { background: var(--forest); color: #f3e5c9; padding: 100px 20px; text-align: center; }
     .footer-logos { display: flex; justify-content: center; gap: 60px; margin-bottom: 40px; }
-    .footer-logos img { width: 90px; filter: brightness(0) invert(1); }
+    .footer-logos img { 
+      width: 90px; 
+      filter: brightness(0) invert(1); 
+      user-select: none; 
+      -webkit-user-drag: none; 
+      pointer-events: none;
+    }
     .social-links a { color: white; margin: 0 15px; text-decoration: none; opacity: 0.7; transition: 0.3s; }
     .social-links a:hover { opacity: 1; }
 
     @media (max-width: 850px) {
       .location-card { grid-template-columns: 1fr; }
-      .footer-logos { flex-direction: column; gap: 30px; }
+      .footer-logos { flex-direction: column; gap: 30px; align-items: center; }
+      .card { padding: 30px; }
     }
   </style>
 </head>
@@ -163,20 +176,20 @@
 <section class="section">
   <h2 id="experience-title">The Summer Rhythm</h2>
   <div class="grid grid-2 photo-grid">
-    <img id="rhythm1" src="images/hero-morillon-sign-from-mountain-top.jpg" alt="Mountain View">
-    <img id="rhythm2" src="images/hero-mountain-scene.jpg" alt="Alpine Landscape">
+    <img id="rhythm1" src="images/hero-morillon-sign-from-mountain-top.jpg" alt="Mountain View" loading="lazy">
+    <img id="rhythm2" src="images/hero-mountain-scene.jpg" alt="Alpine Landscape" loading="lazy">
   </div>
 </section>
 
 <section class="section">
   <h2>The Space</h2>
   <div class="grid grid-3 photo-grid">
-    <img src="images/kitchen.jpg" alt="Loft Kitchen">
-    <img src="images/whole-living-room.jpg" alt="Living Area">
-    <img src="images/bedroom-master.jpg" alt="Master Bedroom">
-    <img src="images/bedroom-bunkbeds.jpg" alt="Bunk Room">
-    <img src="images/bedroom-triple.jpg" alt="Guest Room">
-    <img src="images/master-bath2.jpg" alt="Whirlpool Bath">
+    <img src="images/kitchen.jpg" alt="Loft Kitchen" loading="lazy">
+    <img src="images/whole-living-room.jpg" alt="Living Area" loading="lazy">
+    <img src="images/bedroom-master.jpg" alt="Master Bedroom" loading="lazy">
+    <img src="images/bedroom-bunkbeds.jpg" alt="Bunk Room" loading="lazy">
+    <img src="images/bedroom-triple.jpg" alt="Guest Room" loading="lazy">
+    <img src="images/master-bath2.jpg" alt="Whirlpool Bath" loading="lazy">
   </div>
   <p style="margin-top: 30px; opacity: 0.8; text-align: center; font-style: italic;">3 Bedrooms | 2 Bathrooms | Sleeps up to 10 guests</p>
 </section>
@@ -184,7 +197,7 @@
 <section class="section">
   <div class="card location-card">
     <div class="location-map">
-      <img src="images/map-pindrop.jpg" alt="Map of Morillon" style="height: 100%; min-height: 400px; object-fit: cover;">
+      <img src="images/map-pindrop.jpg" alt="Map of Morillon" style="height: 100%; min-height: 400px; object-fit: cover;" loading="lazy">
     </div>
     <div class="location-info">
       <h2>Steps from the Slopes</h2>
@@ -207,8 +220,8 @@
 
 <footer class="footer">
   <div class="footer-logos">
-    <img src="./images/r-n-l-french-logo.jpg" alt="Relaxed & Livin Logo">
-    <img src="./images/logans-loft-logo.jpg" alt="Logan's Loft Logo">
+    <img src="images/r-n-l-french-logo.jpg" alt="Relaxed & Livin Logo" draggable="false">
+    <img src="images/logans-loft-logo.jpg" alt="Logan's Loft Logo" draggable="false">
   </div>
   <div class="social-links">
     <a href="https://www.youtube.com/@RelaxedandLivin/" target="_blank">YouTube</a>
