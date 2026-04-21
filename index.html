@@ -3,93 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logan's Loft - French Alps</title>
+    <title>Logan's Loft - Morzine, French Alps</title>
+    
+    <meta name="description" content="Stay in the heart of Morzine at Logan's Loft. Sleeps up to 10.">
+    <meta property="og:title" content="Logan's Loft | Morzine, French Alps">
+    <meta property="og:image" content="images/logans-loft-logo.jpg">
+
     <style>
-        /* Your existing CSS variables and base styles */
+        /* Color Palette & Variables */
         :root {
             --bg: #fdfcfb;
             --forest: #234738;
             --clay: #b25841;
             --mustard: #e3a642;
-            --slate: #4a5d5a;
             --cream: #f8f5e9;
             --snow: #f8fbff;
             --burnt: #8b4513;
+            --page-bg: var(--bg);
+            --text: var(--forest);
         }
 
-        /* [NEW] Specific fix for Footer Logos */
+        /* Season Specific Colors */
+        [data-season="summer"] {
+            --panel-bg: #fdfcfb;
+            --hero-wash: linear-gradient(180deg, rgba(243,239,230,0.1) 0%, rgba(243,239,230,0.9) 80%);
+        }
+        [data-season="winter"] {
+            --panel-bg: #f8fbff;
+            --hero-wash: linear-gradient(180deg, rgba(227,236,242,0.1) 0%, rgba(227,236,242,0.9) 80%);
+        }
+
+        /* Global Styles */
+        * { box-sizing: border-box; }
+        body { 
+            font-family: Inter, Arial, Helvetica, sans-serif; 
+            margin: 0; 
+            background: var(--page-bg); 
+            color: var(--text);
+            transition: background 0.28s ease, color 0.28s ease;
+        }
+        img { max-width: 100%; display: block; }
+        .container { max-width: clamp(40ch, 100% - 2rem, 1200px); margin: 0 auto; }
+
+        /* Footer & Logo Styling */
+        .footer { 
+            padding: 4rem 0 3rem; 
+            border-top: 1px solid var(--forest); 
+            background: var(--panel-bg);
+            text-align: center;
+        }
+        .footer-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
         .footer-logos {
             display: flex;
-            gap: 30px;
+            gap: 2rem;
             justify-content: center;
             align-items: center;
-            margin-top: 20px;
-            padding: 10px;
+            margin-top: 1rem;
             position: relative;
-            z-index: 10; /* Ensures images are on top of background layers */
+            z-index: 10;
+        }
+        .footer-logos img {
+            height: 50px; /* Forces visibility */
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
 
-        .footer-logos img {
-            height: 60px; /* Fixed height so they don't squash */
-            width: auto;
-            display: block;
-            border-radius: 4px;
+        /* UI Components */
+        .btn {
+            display: inline-flex;
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
             transition: transform 0.2s ease;
         }
-
-        .footer-logos img:hover {
-            transform: scale(1.05);
+        .btn-primary { background: var(--forest); color: white; }
+        
+        .season-toggle {
+            display: inline-flex;
+            background: #eee;
+            padding: 0.3rem;
+            border-radius: 999px;
+            margin-bottom: 2rem;
         }
-
-        /* The rest of your original CSS goes here... */
-        body { font-family: Inter, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--forest); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        .footer { padding: 4rem 0 2rem; border-top: 1px solid var(--forest); text-align: center; }
+        .season-toggle button {
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        [data-season="summer"] .btn-summer, 
+        [data-season="winter"] .btn-winter {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
 
     <header class="site-header">
         <div class="container">
-            <a href="#" class="brand"><strong>Logan's Loft</strong></a>
+            <nav class="nav-main">
+                <div class="brand"><strong>Logan's Loft</strong></div>
+                <div class="season-toggle">
+                    <button class="btn-summer" onclick="setSeason('summer')">Summer</button>
+                    <button class="btn-winter" onclick="setSeason('winter')">Winter</button>
+                </div>
+            </nav>
         </div>
     </header>
 
     <main id="main-content">
-        </main>
+        <section class="hero">
+            <div class="container">
+                <h1 id="hero-title">A sun-drenched escape in the French Alps.</h1>
+                <p id="hero-copy">Morzine is a place of bright mornings where the mountain is already outside your window.</p>
+                <div class="cta-row">
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-wrapper">
-                <strong>Logan's Loft</strong>
+                <strong>Logan's Loft — Morzine</strong>
                 <p>Relaxed & Livin' — Where comfort meets adventure.</p>
                 
                 <div class="footer-logos">
                     <img src="images/r-n-l-french-logo.jpg" alt="Relaxed & Livin Logo">
                     <img src="images/logans-loft-logo.jpg" alt="Logan's Loft Logo">
                 </div>
+                
+                <p class="micro">© 2026 Logan's Loft. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        /* Your Seasonal Toggle Script */
+        /* Seasonal Content Object */
         const content = {
             summer: {
-                heroTitle: "A sun-drenched escape in the French Alps.",
-                heroCopy: "Experience Morzine in full bloom."
+                title: "A sun-drenched escape in the French Alps.",
+                copy: "Morzine is a place of bright mornings where the mountain is already outside your window. The toggle will switch this into winter."
             },
             winter: {
-                heroTitle: "A cozy alpine basecamp in Morzine.",
-                heroCopy: "Step out into a winter wonderland."
+                title: "A cozy alpine basecamp in Morzine.",
+                titleWinter: "Step out into a winter wonderland. The gondola is right out front. Ski-in/ski-out vibes.",
+                copy: "Swap in your best winter photo here. The toggle will switch this between seasons."
             }
         };
 
         function setSeason(season) {
             document.documentElement.setAttribute('data-season', season);
-            // Updating text based on season
+            document.getElementById('hero-title').innerText = content[season].title;
+            document.getElementById('hero-copy').innerText = content[season].copy;
         }
-        // Initialize season
+
+        // Initialize
         setSeason('summer');
     </script>
 </body>
